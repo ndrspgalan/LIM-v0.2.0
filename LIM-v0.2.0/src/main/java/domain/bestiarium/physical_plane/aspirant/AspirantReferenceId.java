@@ -1,0 +1,35 @@
+package domain.bestiarium.physical_plane.aspirant;
+
+/** Arquitecturas zoológicas funcionales, no especies ASPIRANT ni individuos canónicos. */
+public enum AspirantReferenceId {
+    PRIMATE,
+    PORCINE,
+    CANID,
+    FELID,
+    URSID,
+    BOVID,
+    CERVID,
+    EQUID,
+    RODENT,
+    LAGOMORPH,
+    BAT,
+    PINNIPED,
+    CETACEAN,
+    ELEPHANTID,
+    RAPTOR_BIRD,
+    CORVID,
+    GALLIFORM,
+    SERPENT,
+    CROCODILIAN,
+    LIZARD,
+    AMPHIBIAN,
+    TELEOST,
+    SHARK,
+    LAMPREY,
+    DIPTERAN,
+    ARACHNID,
+    ANT,
+    COLEOPTERAN,
+    GASTROPOD,
+    CEPHALOPOD
+}

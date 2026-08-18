@@ -1,0 +1,4 @@
+package presentation.menu;
+import domain.character.KenanCanonicalProfile; import domain.milestone.PersonaMilestone; import domain.persona.*; import presentation.console.ConsoleInput; import java.io.PrintStream; import java.util.*;
+/** Creación GOLD: Kenan es la única PERSONA jugable. */
+public final class CharacterCreationScreen { private final ConsoleInput input; private final PrintStream output; public CharacterCreationScreen(ConsoleInput i,PrintStream o){input=Objects.requireNonNull(i);output=Objects.requireNonNull(o);} public PersonaProfile create(PersonaRegistry registry){Objects.requireNonNull(registry);if(registry.isFull())throw new IllegalStateException("Kenan ya ha sido encarnado.");return new PersonaProfile("kenan",KenanCanonicalProfile.NAME,KenanCanonicalProfile.INITIAL_LEVEL,List.of(),List.of(new PersonaMilestone("first-incarnation-kenan","Primera encarnación","Kenan entra en La Idea del Mundo.",true)));}}

@@ -1,0 +1,4 @@
+package domain.combat.ai.inventory.external;
+import domain.character.sheet.CurrentCharacterStats;import domain.inventory.InventoryState;import java.util.*;
+/** El cadáver/inconsciente conserva la carga máxima del personaje; equipar contenedores añade espacio, no kg máximos. */
+public final class ExternalInventoryCapacityPolicy {private ExternalInventoryCapacityPolicy(){} public static void requireWithinCanonicalLoad(CurrentCharacterStats stats,InventoryState inventory){Objects.requireNonNull(stats);Objects.requireNonNull(inventory);double max=stats.maximumLoadKg().orElseThrow(()->new IllegalStateException("El objetivo debe conservar su carga máxima canónica."));if(inventory.totalCarriedWeightKg()>max+1e-9)throw new IllegalStateException("No hay capacidad de carga suficiente en el inventario del objetivo.");}}

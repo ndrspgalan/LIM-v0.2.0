@@ -1,0 +1,6 @@
+package domain.save.snapshot;
+import java.io.Serializable; import java.util.*;
+public record MasterySnapshot(Set<String> revealed,Set<String> unlocked,Set<String> activeSustained,Set<String> registeredPassives,Set<String> unlockedStructuredStages,Set<String> unlockedTransmutationNodes,Set<String> runtimeActiveEffects,String equippedRunicMark,String charismaCompanion,String intelligenceCompanion) implements Serializable {
+ public MasterySnapshot{revealed=Set.copyOf(revealed);unlocked=Set.copyOf(unlocked);activeSustained=Set.copyOf(activeSustained);registeredPassives=Set.copyOf(registeredPassives);unlockedStructuredStages=Set.copyOf(unlockedStructuredStages);unlockedTransmutationNodes=Set.copyOf(unlockedTransmutationNodes);runtimeActiveEffects=Set.copyOf(runtimeActiveEffects);equippedRunicMark=equippedRunicMark==null?"":equippedRunicMark;charismaCompanion=charismaCompanion==null?"":charismaCompanion;intelligenceCompanion=intelligenceCompanion==null?"":intelligenceCompanion;}
+ public MasterySnapshot(Set<String> revealed,Set<String> unlocked,Set<String> activeSustained,Set<String> registeredPassives,String equippedRunicMark,String charismaCompanion,String intelligenceCompanion){this(revealed,unlocked,activeSustained,registeredPassives,Set.of(),Set.of(),Set.of(),equippedRunicMark,charismaCompanion,intelligenceCompanion);}
+}

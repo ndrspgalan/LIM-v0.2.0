@@ -1,0 +1,3 @@
+package presentation.menu;
+import domain.persona.*; import java.io.PrintStream; import java.util.Objects;
+public final class IncarnationMenu { private final PersonaRegistry registry; private final PrintStream output; public IncarnationMenu(PersonaRegistry registry,PrintStream output){this.registry=Objects.requireNonNull(registry);this.output=Objects.requireNonNull(output);} public void display(){output.println("\\n=================================\\n            ENCARNAR\\n=================================\\n"); if(registry.personas().isEmpty())output.println("1. ENCARNAR");else output.println("1. CONTINUAR");output.println("0. VOLVER\\n");} public int maximumCode(){return 1;} public int newPersonCode(){return 1;} public int forgetPersonCode(){return -1;} }

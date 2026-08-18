@@ -1,0 +1,4 @@
+SHA-256 canonical JSON (M50.6.1)
+combat-representation/state.json 014629ccaf087c037a2fd9b3a419719fb782b31fa9d732dba9dd60586e92a3d2
+global-boundary/request.json ff254754bfd8503be684ef7f3c9b006b263b77e30c802ff07d4518452870c972
+global-boundary/response.json ab9a81fce98e93576a9afb16601983330eed764b986ea9fb7ad077a070bda1da

@@ -1,0 +1,3 @@
+package domain.ability.event;
+import domain.movement.LocomotionMode;
+public final class ExplorationActionEvent implements MasteryEvent { private final LocomotionMode mode; private final boolean hostileEncounter; private double staminaCost; public ExplorationActionEvent(LocomotionMode mode,boolean hostileEncounter,double staminaCost){this.mode=mode;this.hostileEncounter=hostileEncounter;this.staminaCost=staminaCost;} public LocomotionMode mode(){return mode;} public boolean hostileEncounter(){return hostileEncounter;} public double staminaCost(){return staminaCost;} public void setStaminaCost(double value){staminaCost=Math.max(0,value);} }

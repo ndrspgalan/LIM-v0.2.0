@@ -1,0 +1,12 @@
+package domain.runic;
+
+public enum EffectImmunity {
+    POISON,
+    VIRULENT_TOXICITY,
+    SUFFOCATING_HEAT,
+    STAMINA_REGEN_PENALTIES,
+    STAMINA_REGEN_DELAY,
+    HEALTH_REGEN_PENALTIES,
+    CURSE_DAMAGE,
+    FRENZY
+}

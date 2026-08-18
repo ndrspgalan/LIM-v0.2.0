@@ -1,0 +1,2 @@
+package domain.ability.event;
+public sealed interface MasteryEvent permits EnemyDiedEvent,CharacterDiedEvent,UnarmedImpactEvent,ExplorationActionEvent,EnvironmentalTickEvent,FeraeEncounterEvent {}

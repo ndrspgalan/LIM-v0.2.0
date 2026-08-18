@@ -1,0 +1,58 @@
+package presentation.menu;
+
+import java.util.List;
+import domain.character.progression.MucusDoctrine;
+import domain.character.progression.MucusType;
+
+public record CharacterSheetInspectionEntry(String label, String description) {
+    public CharacterSheetInspectionEntry(String label) {
+        this(label, null);
+    }
+
+    public boolean hasStaticDescription() {
+        return description != null;
+    }
+    public static List<CharacterSheetInspectionEntry> canonicalEntries() {
+        return List.of(
+                new CharacterSheetInspectionEntry("Nivel", "Resume toda progresión confirmada: cada punto de atributo aumenta el nivel en uno, hasta el límite global 999."),
+                new CharacterSheetInspectionEntry("Mucus disponible", MucusDoctrine.CURSE_AND_MUCUS),
+                new CharacterSheetInspectionEntry("Naturaleza de la Maldición", MucusDoctrine.CURSE_NATURE),
+                new CharacterSheetInspectionEntry("Tipos de mucus", MucusDoctrine.TYPES_HEADER),
+                new CharacterSheetInspectionEntry("Mucus blanco", MucusDoctrine.informal(MucusType.BLANCO)),
+                new CharacterSheetInspectionEntry("Mucus amarillento", MucusDoctrine.informal(MucusType.AMARILLENTO)),
+                new CharacterSheetInspectionEntry("Mucus verdoso", MucusDoctrine.informal(MucusType.VERDOSO)),
+                new CharacterSheetInspectionEntry("Mucus marrón", MucusDoctrine.informal(MucusType.MARRON)),
+                new CharacterSheetInspectionEntry("Mucus ensangrentado", MucusDoctrine.informal(MucusType.ENSANGRENTADO)),
+                new CharacterSheetInspectionEntry("Mucus negruzco", MucusDoctrine.informal(MucusType.NEGRUZCO)),
+                new CharacterSheetInspectionEntry("Vitalidad"),
+                new CharacterSheetInspectionEntry("Aguante"),
+                new CharacterSheetInspectionEntry("Adaptabilidad"),
+                new CharacterSheetInspectionEntry("Fuerza"),
+                new CharacterSheetInspectionEntry("Destreza"),
+                new CharacterSheetInspectionEntry("Inteligencia"),
+                new CharacterSheetInspectionEntry("Fe"),
+                new CharacterSheetInspectionEntry("Carisma"),
+                new CharacterSheetInspectionEntry("Clarividencia"),
+                new CharacterSheetInspectionEntry("PV total", "Expresa el margen de daño que puede recibir el organismo antes de alcanzar PV 0 y morir. Cada punto de VITALIDAD añade 10 PV. Los PV máximos determinan además la magnitud basal de PV REGEN mediante su raíz sexta; aumentar el margen de supervivencia aumenta así también, de forma sublineal, la cantidad que el organismo puede regenerar."),
+                new CharacterSheetInspectionEntry("PV REGEN", "Expresa cuántos PV recupera espontáneamente el organismo en cada ciclo de regeneración mientras ésta pueda producirse. Su magnitud basal procede de la raíz sexta de los PV TOTALES y después se aplican los modificadores correspondientes. El ciclo basal ocurre cada 6 segundos en hombre y 5 segundos en mujer. PV REGEN puede acelerarse, multiplicarse o inhibirse sin alterar los PV TOTALES."),
+                new CharacterSheetInspectionEntry("Estabilidad física", "Expresa la capacidad del cuerpo para conservar postura y continuidad motriz cuando una fuerza intenta desplazarlo. Cada punto de VITALIDAD aporta 1 punto de ESTABILIDAD FÍSICA. Se utiliza frente a la política universal de tambaleo y retroceso: resistir el daño y resistir su desplazamiento son resoluciones distintas."),
+                new CharacterSheetInspectionEntry("CORDURA", "Expresa la capacidad de conservar organización mental frente a una agresión de Maldición o Frenesí. Cada punto de INTELIGENCIA aporta 1 punto de CORDURA antes de modificadores. Primero se reduce el daño mediante su resistencia correspondiente; después CORDURA reduce porcentualmente la presión mental del daño restante que alimenta StaggerPolicy, con un máximo efectivo del 100 %. CORDURA no funciona como una resistencia adicional ni reduce el daño recibido."),
+                new CharacterSheetInspectionEntry("PA total", "Expresa la reserva disponible para realizar acciones que exigen esfuerzo. Su valor basal corresponde al AGUANTE del personaje. Las acciones consumen cantidades distintas de PA según su política propia; vaciar la barra no equivale a agotarla permanentemente, sino a haber consumido temporalmente toda la capacidad disponible antes de su regeneración."),
+                new CharacterSheetInspectionEntry("PA REGEN", "Expresa la recuperación funcional de PA una vez que ésta puede comenzar. Tras consumir PA existe una latencia basal de 1,20 segundos, reducida en 0,01 segundos por cada punto de AGUANTE. Después, el tiempo de recuperación completa depende de la carga: hasta 1/3 requiere 1 segundo; entre 1/3 y 2/3, 1,5 segundos; por encima de 2/3, 3 segundos; y al alcanzar o superar la capacidad máxima, 5 segundos. Alcanzar ese último tramo inmoviliza al personaje mientras persista la sobrecarga, pero no detiene PA REGEN."),
+                new CharacterSheetInspectionEntry("Carga", "Expresa la relación entre la masa transportada y la capacidad máxima del personaje. Cada punto de AGUANTE aporta 1 kg de capacidad hasta un máximo ordinario de 40 kg en hombre y 30 kg en mujer antes de modificadores. La proporción ocupada determina los tramos de recuperación de PA; alcanzar o superar el 100 % inmoviliza al personaje, pero no detiene PA REGEN."),
+                new CharacterSheetInspectionEntry("Resistencia perforante", "Reduce porcentualmente el daño Perforante que alcanza al personaje después de resolver cobertura, capas y protección de armadura. Representa la tolerancia intrínseca frente a cargas concentradas que intentan penetrar y desorganizar tejido. Hasta ADAPTABILIDAD 75 aumenta +0,2 puntos porcentuales por nivel en hombre y +0,1 en mujer. A partir de 76, cada nuevo punto añade +0,7 a las nueve resistencias, con techo del 100 %; resistir daño no equivale a impedir la adversidad que pudiera acompañarlo."),
+                new CharacterSheetInspectionEntry("Resistencia cortante", "Reduce porcentualmente el daño Cortante que alcanza al personaje después de resolver cobertura, capas y protección de armadura. Representa la tolerancia tisular frente a una fuerza aplicada mediante un filo que intenta separar estructuras continuas. Hasta ADAPTABILIDAD 75 aumenta +0,2 puntos porcentuales por nivel en hombre y +0,1 en mujer. A partir de 76, cada nuevo punto añade +0,7 a las nueve resistencias, con techo del 100 %."),
+                new CharacterSheetInspectionEntry("Resistencia contundente", "Reduce porcentualmente el daño Contundente que haya atravesado la resolución de protección. Representa la capacidad intrínseca de soportar compresión, deformación y transferencia de energía sin que toda ella se convierta en lesión. Hasta ADAPTABILIDAD 75 aumenta +0,2 puntos porcentuales por nivel en hombre y +0,1 en mujer. El desplazamiento y el tiempo de tambaleo pertenecen a StaggerPolicy y se resuelven aparte. A partir de 76, cada nuevo punto añade +0,7 a las nueve resistencias, con techo del 100 %."),
+                new CharacterSheetInspectionEntry("Resistencia al veneno", "Reduce porcentualmente el daño por Veneno una vez que éste alcanza el organismo. Representa tolerancia fisiológica frente a sustancias que alteran su funcionamiento interno; no equivale a inmunidad ni impide por sí misma la consolidación de Toxicidad Virulenta. Hasta ADAPTABILIDAD 75 aumenta +0,1 puntos porcentuales por nivel en ambos sexos. A partir de 76, cada nuevo punto añade +0,7 a las nueve resistencias, con techo del 100 %."),
+                new CharacterSheetInspectionEntry("Resistencia a quemadura", "Reduce porcentualmente el daño por Quemadura que alcanza al organismo. Representa tolerancia frente al deterioro térmico o químico ya producido; no impide por sí misma que Quemadura Asfixiante se consolide, porque daño y adversidad ambiental son fenómenos distintos. Hasta ADAPTABILIDAD 75 aumenta +0,1 puntos porcentuales por nivel en ambos sexos. A partir de 76, cada nuevo punto añade +0,7 a las nueve resistencias, con techo del 100 %."),
+                new CharacterSheetInspectionEntry("Resistencia a congelación", "Reduce porcentualmente el daño por Congelación. Representa tolerancia fisiológica frente al deterioro producido por pérdida extrema de temperatura; no equivale a comodidad térmica ni impide por sí misma Frío Escarchante. Hasta ADAPTABILIDAD 75 aumenta +0,1 puntos porcentuales por nivel en ambos sexos. A partir de 76, cada nuevo punto añade +0,7 a las nueve resistencias, con techo del 100 %."),
+                new CharacterSheetInspectionEntry("Resistencia a electricidad", "Reduce porcentualmente el daño eléctrico que alcanza al organismo. Entre ADAPTABILIDAD 1 y 75 no desarrolla progresión ordinaria en ninguno de los dos sexos: recibir descargas no enseña a los tejidos a conducirlas de forma inocua. A partir de 76, cada nuevo punto añade +0,7 puntos porcentuales a las nueve resistencias, con techo del 100 %. Estar Empapado convierte al personaje en conductor natural y elimina la protección que esta resistencia ofrecería frente a una descarga."),
+                new CharacterSheetInspectionEntry("Resistencia a maldición", "Reduce porcentualmente el daño por Maldición antes de que CORDURA intervenga sobre la presión mental restante. Representa la capacidad de preservar la continuidad funcional del individuo frente a una imposición maldita. Hasta ADAPTABILIDAD 75 aumenta +0,1 puntos porcentuales por nivel en hombre y +0,25 en mujer. A partir de 76, cada nuevo punto añade +0,7 a las nueve resistencias. Toda resistencia está limitada al 100 %."),
+                new CharacterSheetInspectionEntry("Resistencia a frenesí", "Reduce porcentualmente el daño por Frenesí antes de la intervención posterior de CORDURA sobre su presión mental. Representa la tolerancia frente a una excitación invasiva capaz de desorganizar percepción, impulso y juicio. Hasta ADAPTABILIDAD 75 aumenta +0,1 puntos porcentuales por nivel en hombre y +0,05 en mujer. A partir de 76, cada nuevo punto añade +0,7 a las nueve resistencias. Toda resistencia está limitada al 100 %."),
+                new CharacterSheetInspectionEntry("Toxicidad Virulenta", "Una contaminación ambiental que se acumula a través de las áreas vulnerables hasta comprometer el funcionamiento interno del organismo. La cobertura limita la severidad de la exposición, pero esta adversidad no equivale al daño directo por veneno ni queda anulada por la resistencia que lo amortigua."),
+                new CharacterSheetInspectionEntry("Quemadura Asfixiante", "Una exposición sostenida a calor y abrasión ambiental que desborda gradualmente la capacidad del organismo para conservar su equilibrio. La cobertura de las áreas vulnerables limita su severidad, pero esta adversidad no equivale al daño directo por quemadura ni queda anulada por la resistencia que lo amortigua."),
+                new CharacterSheetInspectionEntry("Frío Escarchante", "Una pérdida sostenida de calor que se acumula en el cuerpo hasta comprometer sus tejidos. La cobertura corporal retrasa la severidad efectiva del daño y un conjunto completo de tela impide que llegue a consolidarse."),
+                new CharacterSheetInspectionEntry("Empapado", "La saturación progresiva del cuerpo y el equipamiento por humedad. No provoca daño directo, pero convierte al personaje en un conductor natural y elimina la protección que su resistencia a electricidad ofrecería frente a una descarga; por ello, no equivale al daño eléctrico.")
+        );
+    }
+}
